@@ -80,7 +80,20 @@ pnl_plot(SPY)
 
 **Your Answers here:**
 <br>
+1. The returns of Apple are downloaded through the dataSet1.R file. The companies whose returns are downloaded are defined in the mytickers variable.
 <br>
+2. The cumulative returns of Apple during this period is `r round(100*sum(StockReturns[,2]),1)`%.
+<br>
+The average daily returns of Apple during this period is `r round(100*mean(StockReturns[,2]),3)`%;
+<br>
+The standard deviation of the daily returns of Apple during this period is `r round(100*sd(StockReturns[,2]),3)`%;
+<br>
+<br>
+3. The cumulative returns of Yahoo during this period is `r round(100*sum(StockReturns[,3]),1)`%.
+<br>
+The average daily returns of Yahoo during this period is `r round(100*mean(StockReturns[,3]),3)`%;
+<br>
+The standard deviation of the daily returns of Yahoo during this period is `r round(100*sd(StockReturns[,3]),3)`%;
 <br>
 <br>
 
@@ -121,8 +134,16 @@ We can also transpose the matrix of returns to create a new "horizontal" matrix.
 
 **Your Answers here:**
 <br>
+1.We can use nrow(transposedData) to get the number of rows and ncol(transposedData) to get the number of columns in the matrix transposedData
 <br>
 <br>
+2.
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig=TRUE}
+portfolio1 = apply(StockReturns,1,mean)
+names(portfolio1) <- rownames(StockReturns)
+pnl_plot(portfolio1)
+```
+
 <br>
 
 <hr>
@@ -138,6 +159,18 @@ This is an important step and will get you to think about the overall process on
 2. *(Extra Exercise)*  Can you get the returns of a few companies and plot the returns of an equal weighted portfolio with those companies during some period you select? 
 
 **Your Answers here:**
+<br>
+1. Change the value stored in startDate to 2001-01-01
+<br>
+<br>
+2. The portfolio equally comprised of Apple, Yahoo, Google and the S&P500 is displayed below
+<br>
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig=TRUE}
+portfolio1 = apply(StockReturns,1,mean)
+names(portfolio1) <- rownames(StockReturns)
+pnl_plot(portfolio1)
+```
+
 <br>
 <br>
 <br>
@@ -190,7 +223,7 @@ Can you now load another dataset from some CSV file and report some basic statis
 
 Finally, just for fun, one can add some interactivity in the report using [Shiny](http://rmarkdown.rstudio.com/authoring_shiny.html).All one needs to do is set the eval flag of the code chunk below (see the .Rmd file) to "TRUE", add the line "runtime: shiny" at the very begining of the .Rmd file, make the markdown output to be "html_document", and then press "Run Document". 
 
-```{r, eval=FALSE, echo = TRUE}
+```{r, eval=TRUE, echo = TRUE}
 sliderInput("startdate", "Starting Date:", min = 1, max = length(portfolio), 
             value = 1)
 sliderInput("enddate", "End Date:", min = 1, max = length(portfolio), 
