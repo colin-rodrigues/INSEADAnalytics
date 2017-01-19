@@ -1,12 +1,4 @@
 
----
-title: "Exercise Set 1"_test
-author: "T. Evgeniou"
-output: html_document
----
-
-
-<br>
 
 The purpose of this exercise is to become familiar with:
 
