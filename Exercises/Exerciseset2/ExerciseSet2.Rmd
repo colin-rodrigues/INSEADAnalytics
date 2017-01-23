@@ -65,6 +65,7 @@ load("data/FuturesTrendFollowingData.Rdata")
 ```
 
 <br>
+
 We have data from `r head(rownames(futures_data),1)` to `r tail(rownames(futures_data),1)` of daily returns for the following `r ncol(futures_data)` futures: 
 
 <br>
