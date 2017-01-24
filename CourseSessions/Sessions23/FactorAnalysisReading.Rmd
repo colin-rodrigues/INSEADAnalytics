@@ -29,14 +29,14 @@ options(knitr.kable.NA = '')
 
 # Please ENTER the name of the file with the data used. The file should be a .csv with one row per observation (e.g. person) and one column per attribute. 
 
-datafile_name="MBAadmin" #  do not add .csv at the end, make sure the data are numeric, check your file.
+datafile_name="Boats" #  do not add .csv at the end, make sure the data are numeric, check your file.
 
 # Please enter the minimum number below which you would like not to print - this makes the readability of the tables easier. Default values are either 10e6 (to print everything) or 0.5. Try both to see the difference.
-MIN_VALUE=0.5
+MIN_VALUE=10e6
 
 # Please enter the maximum number of observations to show in the report and slides 
 # (DEFAULT is 15. If the number is large the report and slides may not be generated - very slow or will crash!!)
-max_data_report = 10
+max_data_report = 15
 
 ProjectData <- read.csv(paste0("data/", datafile_name, ".csv")) # this contains only the matrix ProjectData
 ProjectData=data.matrix(ProjectData) 
@@ -48,7 +48,7 @@ if (datafile_name == "Boats")
 
 # Please ENTER then original raw attributes to use. 
 # Please use numbers, not column names! e.g. c(1:5, 7, 8) uses columns 1,2,3,4,5,7,8
-factor_attributes_used= c(1:7)
+factor_attributes_used= c(1:20)
 
 # Please ENTER the selection criterions for the factors to use. 
 # Choices: "eigenvalue", "variance", "manual"
